@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+## isin
+
+Support the NASA / GlobColour / CCI ISIN grid used for MODIS L3BIN satellite products.
+
+```{r}
+library(isin)
+
+## Create test dataset
+
+lonlat <- data.frame(
+  bin_num = c(245535, 245536, 247290, 249046, 249047, 250809)
+)
+
+lonlat
+
+```
+
+### Convert bin index to latlon
+
+The `bin2latlon()` function converts a MODIS bin index to longitude and latitude.
+
+```{r}
+df <- bin2latlon(lonlat$bin_num)
+df
+
+```
+
+### Convert latlon to bin index
+
+The `latlon2bin()` function converts a pair of longitude/latitude to a MODIS bin index.
+
+
+```{r}
+latlon2bin(lat = df$latitude, lon = df$longitude)
+```
+
+### Credit
+
+The C/C++ code is almost entierly based on [oceancolor algorithm](http://oceancolor.gsfc.nasa.gov/staff/norman/swreadl3b/swreadl3b.c). Credit should be given to them.
