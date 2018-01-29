@@ -2,18 +2,18 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 lat2row <- function(lat) {
-    .Call('isin_lat2row', PACKAGE = 'isin', lat)
+    .Call('_isin_lat2row', PACKAGE = 'isin', lat)
 }
 
 rowlon2bin <- function(row, lon) {
-    .Call('isin_rowlon2bin', PACKAGE = 'isin', row, lon)
+    .Call('_isin_rowlon2bin', PACKAGE = 'isin', row, lon)
 }
 
 latlon2bin <- function(lat, lon) {
-    .Call('isin_latlon2bin', PACKAGE = 'isin', lat, lon)
+    .Call('_isin_latlon2bin', PACKAGE = 'isin', lat, lon)
 }
 
 bin2latlon <- function(binIndex) {
-    .Call('isin_bin2latlon', PACKAGE = 'isin', binIndex)
+    .Call('_isin_bin2latlon', PACKAGE = 'isin', binIndex)
 }
 

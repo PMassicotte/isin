@@ -179,18 +179,18 @@ double constrain_lon(double lon){
   return(lon);
 }
 
-/*** R
-lonlat <- tibble::tribble(
-  ~bin_num, ~nobs, ~nscenes, ~weights, ~time_rec,
-  245535, 3, 1, 1.732051,  947813952,
-  245536, 1, 1, 1.000000,  315937984,
-  247290, 1, 1, 1.000000,  315943840,
-  249046, 9, 2, 3.828427, 2843453696,
-  249047, 11, 3, 5.700170, 3475382528,
-  250809, 5, 1, 2.236068, 1579689984)
-
-df <- bin2latlon(lonlat$bin_num)
-df
-
-latlon2bin(lat = df$latitude, lon = df$longitude)
-*/
+# /*** R
+# lonlat <- tibble::tribble(
+#   ~bin_num, ~nobs, ~nscenes, ~weights, ~time_rec,
+#   245535, 3, 1, 1.732051,  947813952,
+#   245536, 1, 1, 1.000000,  315937984,
+#   247290, 1, 1, 1.000000,  315943840,
+#   249046, 9, 2, 3.828427, 2843453696,
+#   249047, 11, 3, 5.700170, 3475382528,
+#   250809, 5, 1, 2.236068, 1579689984)
+#
+# df <- bin2latlon(lonlat$bin_num)
+# df
+#
+# latlon2bin(lat = df$latitude, lon = df$longitude)
+# */

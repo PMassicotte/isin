@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // lat2row
 int lat2row(double lat);
-RcppExport SEXP isin_lat2row(SEXP latSEXP) {
+RcppExport SEXP _isin_lat2row(SEXP latSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -18,7 +18,7 @@ END_RCPP
 }
 // rowlon2bin
 int rowlon2bin(int row, double lon);
-RcppExport SEXP isin_rowlon2bin(SEXP rowSEXP, SEXP lonSEXP) {
+RcppExport SEXP _isin_rowlon2bin(SEXP rowSEXP, SEXP lonSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -30,7 +30,7 @@ END_RCPP
 }
 // latlon2bin
 Rcpp::DataFrame latlon2bin(NumericVector lat, NumericVector lon);
-RcppExport SEXP isin_latlon2bin(SEXP latSEXP, SEXP lonSEXP) {
+RcppExport SEXP _isin_latlon2bin(SEXP latSEXP, SEXP lonSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -42,7 +42,7 @@ END_RCPP
 }
 // bin2latlon
 Rcpp::DataFrame bin2latlon(NumericVector binIndex);
-RcppExport SEXP isin_bin2latlon(SEXP binIndexSEXP) {
+RcppExport SEXP _isin_bin2latlon(SEXP binIndexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -50,4 +50,17 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(bin2latlon(binIndex));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_isin_lat2row", (DL_FUNC) &_isin_lat2row, 1},
+    {"_isin_rowlon2bin", (DL_FUNC) &_isin_rowlon2bin, 2},
+    {"_isin_latlon2bin", (DL_FUNC) &_isin_latlon2bin, 2},
+    {"_isin_bin2latlon", (DL_FUNC) &_isin_bin2latlon, 1},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_isin(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
